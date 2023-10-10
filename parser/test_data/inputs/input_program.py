@@ -173,7 +173,7 @@ def adjust_price(df: pd.DataFrame) -> pd.DataFrame:
     new_df = df.copy()
     step = new_df.index.step
     diff = list(new_df.index[new_df.shift(1).adjClose != new_df.yesterday])
-    if len(diff) > 0:
+    if diff:
         diff.pop(0)
     ratio = 1
     ratio_list = []
@@ -183,10 +183,7 @@ def adjust_price(df: pd.DataFrame) -> pd.DataFrame:
         )
         ratio_list.insert(0, ratio)
     for i, k in enumerate(diff):
-        if i == 0:
-            start = new_df.index.start
-        else:
-            start = diff[i - 1]
+        start = new_df.index.start if i == 0 else diff[i - 1]
         end = diff[i] - step
         new_df.loc[
             start:end,
@@ -257,8 +254,7 @@ def download_fIndex_record(fIndex: str, session: Session):
             f"""Invalid response from the url: {url}.
                          \nExpected valid financial index data."""
         )
-    df = _create_financial_index_from_text_response(data)
-    return df
+    return _create_financial_index_from_text_response(data)
 
 
 def download_financial_indexes(
@@ -461,7 +457,5 @@ def get_symbol_info(symbol_name: str):
             else:
                 market_symbol.old.append(symbol_full_info[2])  # old symbol id
 
-    if market_symbol.index is None:
-        return None
-    return market_symbol
+    return None if market_symbol.index is None else market_symbol
 

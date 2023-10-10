@@ -16,6 +16,3 @@ class MyClass:
 
 call_undefined_name()
 
-for i in undef_name:
-    pass
-

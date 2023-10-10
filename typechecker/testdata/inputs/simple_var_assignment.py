@@ -1,5 +1,5 @@
 a = 'hello world'
-b = a + "!"
+b = f"{a}!"
 
 c: int = 1
 

@@ -16,8 +16,8 @@ except ValueError:
 
 try:
     async with session.get(
-        url, headers=TRADE_DETAILS_HEADER, timeout=100
-    ) as response:
+            url, headers=TRADE_DETAILS_HEADER, timeout=100
+        ) as response:
         if response.status == 503:
             logger.info(
                 f"Received 503 Service Unavailable on {date_obj}. Retrying..."
@@ -30,7 +30,6 @@ try:
             logger.info(
                 f"Successfully fetched trade details on {date_obj} from tse"
             )
-            return [date_obj, pd.json_normalize(data["tradeHistory"])]
 except (aiohttp.ClientError, asyncio.TimeoutError):
     logger.error(f"Request failed for {date_obj}. Retrying...")
     retry_count += 1

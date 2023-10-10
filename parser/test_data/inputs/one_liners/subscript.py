@@ -1,4 +1,4 @@
-indices = list_of_key_stats[0::2]
+indices = list_of_key_stats[::2]
 
 values = list_of_key_stats[1::2]
 
