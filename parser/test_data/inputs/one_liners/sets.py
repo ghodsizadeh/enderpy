@@ -15,14 +15,13 @@ b,
 
 {a, b, c,}
 
-{a for a in range(10)}
+set(range(10))
 
-{a for a in range(10)
-}
+set(range(10))
 
-{a for a in range(10)}
+set(range(10))
 
-{a for a in range(10)}
+set(range(10))
 
 {a for a in range(10) for b in range(10)}
 

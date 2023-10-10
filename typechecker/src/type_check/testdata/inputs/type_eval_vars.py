@@ -23,7 +23,7 @@ unaray_op4 = +a
 
 named = (a := 1)
 
-generator = (x for x in g)
+generator = iter(g)
 
 gg = (1, "str")
 

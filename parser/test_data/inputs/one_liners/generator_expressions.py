@@ -1,4 +1,4 @@
-(a for a in b)
+iter(b)
 
 (a for a in b if c)
 

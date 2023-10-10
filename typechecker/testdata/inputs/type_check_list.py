@@ -5,7 +5,7 @@ b = a[0] + 1
 c = a[0] + a[1]
 
 # invalid usage of types
-d = a[0] + "str"
+d = f"{a[0]}str"
 
 # valid reassignment
 a = [1]

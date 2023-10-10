@@ -1,6 +1,6 @@
 a: int = 1
 
-a + "str"
+f"{a}str"
 
 b = a + 1
 

@@ -1,8 +1,3 @@
-for a in b: pass
-
-for a in b:
-    pass
-
 for a in range(10):
     a = 1
 else:
